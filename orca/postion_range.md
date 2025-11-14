@@ -1,5 +1,10 @@
 ```js
- const position = await fetchPosition(rpc,address("")); // Postion address not NFT ADRESS!!!
+    const positionAdress = (await getPositionAddress("POISITION_NFT"))[0];
+    const position = await fetchPosition(rpc,address(positionAdress));
+
+    //OR
+    //const position = await fetchPosition(rpc,address("POISITION_ADDRESS"));
+
     const pool = await fetchWhirlpool(rpc, position.data.whirlpool);
     const TokenADecimals = await getTokenDecimals(rpc, pool.data.tokenMintA);
     const TokenBDecimals = await getTokenDecimals(rpc, pool.data.tokenMintB);
